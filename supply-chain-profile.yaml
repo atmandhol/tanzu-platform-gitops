@@ -7,7 +7,9 @@ spec:
   description: With Supply chain profile, you can create Tanzu Build and Tanzu Deploy workloads on Spaces.
   requiredCapabilities:
   - name: tanzu-build.supplychain.tanzu.vmware.com
+  - name: tanzu-deploy.supplychain.tanzu.vmware.com
   - name: tekton.tanzu.vmware.com
   - name: supply-chain.apps.tanzu.vmware.com
   - name: package-management.tanzu.vmware.com
   traits:
+
