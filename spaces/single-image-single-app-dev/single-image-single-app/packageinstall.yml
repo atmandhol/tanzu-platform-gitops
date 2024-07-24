@@ -10,7 +10,7 @@ spec:
   packageRef:
     refName: single-image-single-app.apps.local
     versionSelection:
-      constraints: 20240723.1843.15560
+      constraints: 20240724.1511.1997
   serviceAccountName: carvel-package-installer
   values:
   - secretRef:
