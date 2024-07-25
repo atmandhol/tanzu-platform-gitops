@@ -8,10 +8,10 @@ metadata:
   name: api-gateway
 spec:
   content:
-    buildTimestamp: "2024-07-25T17:04:42Z"
+    buildTimestamp: "2024-07-25T17:16:45Z"
     packageRefName: api-gateway.apps.local
-    summary: image:976edbb @ 2024-07-25T17:04:42Z
-    version: 20240725.1704.42466
+    summary: image:976edbb @ 2024-07-25T17:16:45Z
+    version: 20240725.1716.45397
   image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:976edbb5e191ea570d0f2722ae76c527dd0af05462a267be5b596d7c1b01370e
   nonSecretEnv:
   - name: JAVA_TOOL_OPTIONS
@@ -69,7 +69,7 @@ spec:
   - apiGroup: data.packaging.carvel.dev
     for: kubernetes.delete
     kind: Package
-    name: api-gateway.apps.local.20240725.1704.42466
+    name: api-gateway.apps.local.20240725.1716.45397
   - for: kubernetes.delete
     kind: Secret
     name: api-gateway-values

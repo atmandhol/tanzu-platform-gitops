@@ -5,10 +5,10 @@ metadata:
     apps.tanzu.vmware.com/promotable: ""
     apps.tanzu.vmware.com/promote-group: ContainerApp/crawler-python
   creationTimestamp: null
-  name: crawler-python.apps.local.20240725.1704.42466
+  name: crawler-python.apps.local.20240725.1716.45397
 spec:
   refName: crawler-python.apps.local
-  releasedAt: "2024-07-25T17:07:51Z"
+  releasedAt: "2024-07-25T17:19:46Z"
   template:
     spec:
       deploy:
@@ -17,7 +17,7 @@ spec:
           - --wait=false
       fetch:
       - imgpkgBundle:
-          image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:98208feb6c32b2e6f895c10eceebd1251e377da129229377af54ee2005ac2815
+          image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:061ad4028d4dbe3fa5d1cf8880dd3852452dbddf6a7bf178ced67c7033faaaeb
       template:
       - ytt:
           paths:
@@ -28,4 +28,4 @@ spec:
           - '-'
   valuesSchema:
     openAPIv3: null
-  version: 20240725.1704.42466
+  version: 20240725.1716.45397

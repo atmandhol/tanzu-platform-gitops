@@ -5,10 +5,10 @@ metadata:
     apps.tanzu.vmware.com/promotable: ""
     apps.tanzu.vmware.com/promote-group: ContainerApp/search-proc
   creationTimestamp: null
-  name: search-proc.apps.local.20240725.1704.42466
+  name: search-proc.apps.local.20240725.1716.45397
 spec:
   refName: search-proc.apps.local
-  releasedAt: "2024-07-25T17:09:20Z"
+  releasedAt: "2024-07-25T17:21:14Z"
   template:
     spec:
       deploy:
@@ -17,7 +17,7 @@ spec:
           - --wait=false
       fetch:
       - imgpkgBundle:
-          image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:64bce4b3ee49b4c9e2502b73ad5a54b3a823f68b83895536ce6fb1a7ff25bba4
+          image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:2d807a105cf2dd56ecf6d28c48ec3a31a3504ad7dd6bfeee9c2001426dd60d69
       template:
       - ytt:
           paths:
@@ -28,4 +28,4 @@ spec:
           - '-'
   valuesSchema:
     openAPIv3: null
-  version: 20240725.1704.42466
+  version: 20240725.1716.45397

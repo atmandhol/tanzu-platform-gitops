@@ -5,10 +5,10 @@ metadata:
     apps.tanzu.vmware.com/promotable: ""
     apps.tanzu.vmware.com/promote-group: ContainerApp/notify
   creationTimestamp: null
-  name: notify.apps.local.20240725.1704.42466
+  name: notify.apps.local.20240725.1716.45397
 spec:
   refName: notify.apps.local
-  releasedAt: "2024-07-25T17:08:50Z"
+  releasedAt: "2024-07-25T17:20:45Z"
   template:
     spec:
       deploy:
@@ -17,7 +17,7 @@ spec:
           - --wait=false
       fetch:
       - imgpkgBundle:
-          image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:7a66af0e66616c52fbccc3836d0852b8aab58f942b809cd00c7a2751898605d5
+          image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:8171600a1ba7dadb27f74b3c613bbf38f4b7b9997842679451d576553e94c771
       template:
       - ytt:
           paths:
@@ -28,4 +28,4 @@ spec:
           - '-'
   valuesSchema:
     openAPIv3: null
-  version: 20240725.1704.42466
+  version: 20240725.1716.45397

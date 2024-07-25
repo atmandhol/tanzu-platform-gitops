@@ -8,10 +8,10 @@ metadata:
   name: notify
 spec:
   content:
-    buildTimestamp: "2024-07-25T17:04:42Z"
+    buildTimestamp: "2024-07-25T17:16:45Z"
     packageRefName: notify.apps.local
-    summary: image:4263ebc @ 2024-07-25T17:04:42Z
-    version: 20240725.1704.42466
+    summary: image:4263ebc @ 2024-07-25T17:16:45Z
+    version: 20240725.1716.45397
   image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:4263ebc99b11b533ef2edbf0343e83fd192ee2d81e968f27f71c2420cc2a5bf1
   nonSecretEnv:
   - name: JAVA_TOOL_OPTIONS
@@ -69,7 +69,7 @@ spec:
   - apiGroup: data.packaging.carvel.dev
     for: kubernetes.delete
     kind: Package
-    name: notify.apps.local.20240725.1704.42466
+    name: notify.apps.local.20240725.1716.45397
   - for: kubernetes.delete
     kind: Secret
     name: notify-values

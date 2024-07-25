@@ -8,10 +8,10 @@ metadata:
   name: search
 spec:
   content:
-    buildTimestamp: "2024-07-25T17:04:42Z"
+    buildTimestamp: "2024-07-25T17:16:45Z"
     packageRefName: search.apps.local
-    summary: image:d0b27f7 @ 2024-07-25T17:04:42Z
-    version: 20240725.1704.42466
+    summary: image:d0b27f7 @ 2024-07-25T17:16:45Z
+    version: 20240725.1716.45397
   image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:d0b27f77e84a89fbafbccf4bd6f3b624a7e207ab590de2afc0e756e5d8a1d39d
   nonSecretEnv:
   - name: JAVA_TOOL_OPTIONS
@@ -69,7 +69,7 @@ spec:
   - apiGroup: data.packaging.carvel.dev
     for: kubernetes.delete
     kind: Package
-    name: search.apps.local.20240725.1704.42466
+    name: search.apps.local.20240725.1716.45397
   - for: kubernetes.delete
     kind: Secret
     name: search-values

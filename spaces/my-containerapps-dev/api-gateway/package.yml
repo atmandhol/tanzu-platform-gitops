@@ -5,10 +5,10 @@ metadata:
     apps.tanzu.vmware.com/promotable: ""
     apps.tanzu.vmware.com/promote-group: ContainerApp/api-gateway
   creationTimestamp: null
-  name: api-gateway.apps.local.20240725.1704.42466
+  name: api-gateway.apps.local.20240725.1716.45397
 spec:
   refName: api-gateway.apps.local
-  releasedAt: "2024-07-25T17:06:29Z"
+  releasedAt: "2024-07-25T17:18:35Z"
   template:
     spec:
       deploy:
@@ -17,7 +17,7 @@ spec:
           - --wait=false
       fetch:
       - imgpkgBundle:
-          image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:70123ab65086d5f7c3b901551a111fb2276a215bb653a78ac34c179f08f0f214
+          image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:7ef16cf13ec138932219aaf84df44ec3b2a877ba7f61e0cbf1277b79bfdb91fd
       template:
       - ytt:
           paths:
@@ -28,4 +28,4 @@ spec:
           - '-'
   valuesSchema:
     openAPIv3: null
-  version: 20240725.1704.42466
+  version: 20240725.1716.45397

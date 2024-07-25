@@ -8,10 +8,10 @@ metadata:
   name: ui
 spec:
   content:
-    buildTimestamp: "2024-07-25T17:04:42Z"
+    buildTimestamp: "2024-07-25T17:16:45Z"
     packageRefName: ui.apps.local
-    summary: image:4f91d01 @ 2024-07-25T17:04:42Z
-    version: 20240725.1704.42466
+    summary: image:4f91d01 @ 2024-07-25T17:16:45Z
+    version: 20240725.1716.45397
   image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:4f91d01614347ad037ac846d9d38509bb30581956560c14816112cb9a3231d24
   nonSecretEnv:
   - name: PORT
@@ -49,7 +49,7 @@ spec:
   - apiGroup: data.packaging.carvel.dev
     for: kubernetes.delete
     kind: Package
-    name: ui.apps.local.20240725.1704.42466
+    name: ui.apps.local.20240725.1716.45397
   - for: kubernetes.delete
     kind: Secret
     name: ui-values

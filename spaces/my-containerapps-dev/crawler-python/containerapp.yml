@@ -8,10 +8,10 @@ metadata:
   name: crawler-python
 spec:
   content:
-    buildTimestamp: "2024-07-25T17:04:42Z"
+    buildTimestamp: "2024-07-25T17:16:45Z"
     packageRefName: crawler-python.apps.local
-    summary: image:42def2d @ 2024-07-25T17:04:42Z
-    version: 20240725.1704.42466
+    summary: image:42def2d @ 2024-07-25T17:16:45Z
+    version: 20240725.1716.45397
   image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:42def2d77f2342f55a0e9d5bc78c777beca2d6bd723fd1a9274ccbc4660e72f7
   ports:
   - name: main
@@ -46,7 +46,7 @@ spec:
   - apiGroup: data.packaging.carvel.dev
     for: kubernetes.delete
     kind: Package
-    name: crawler-python.apps.local.20240725.1704.42466
+    name: crawler-python.apps.local.20240725.1716.45397
   - for: kubernetes.delete
     kind: Secret
     name: crawler-python-values
