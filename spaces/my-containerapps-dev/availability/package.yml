@@ -1,0 +1,31 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/availability
+  creationTimestamp: null
+  name: availability.apps.local.20240725.1553.14487
+spec:
+  refName: availability.apps.local
+  releasedAt: "2024-07-25T15:55:37Z"
+  template:
+    spec:
+      deploy:
+      - kapp:
+          rawOptions:
+          - --wait=false
+      fetch:
+      - imgpkgBundle:
+          image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:fc234189acb8d7c0a95b6110e9992be05d82bd06ae08bf17a779f2e1fd813196
+      template:
+      - ytt:
+          paths:
+          - config/
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+  valuesSchema:
+    openAPIv3: null
+  version: 20240725.1553.14487
