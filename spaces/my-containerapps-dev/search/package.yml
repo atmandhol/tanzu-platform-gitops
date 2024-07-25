@@ -1,0 +1,31 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/search
+  creationTimestamp: null
+  name: search.apps.local.20240725.1459.39812
+spec:
+  refName: search.apps.local
+  releasedAt: "2024-07-25T15:04:52Z"
+  template:
+    spec:
+      deploy:
+      - kapp:
+          rawOptions:
+          - --wait=false
+      fetch:
+      - imgpkgBundle:
+          image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:7b3a1f9f57d57c860f3fe75726c6594cf86faf05eb4579e463e942f67a511e14
+      template:
+      - ytt:
+          paths:
+          - config/
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+  valuesSchema:
+    openAPIv3: null
+  version: 20240725.1459.39812
