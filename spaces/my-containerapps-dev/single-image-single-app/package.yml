@@ -5,10 +5,10 @@ metadata:
     apps.tanzu.vmware.com/promotable: ""
     apps.tanzu.vmware.com/promote-group: ContainerApp/single-image-single-app
   creationTimestamp: null
-  name: single-image-single-app.apps.local.20240725.1408.39284
+  name: single-image-single-app.apps.local.20240725.1442.15065
 spec:
   refName: single-image-single-app.apps.local
-  releasedAt: "2024-07-25T14:10:07Z"
+  releasedAt: "2024-07-25T14:43:37Z"
   template:
     spec:
       deploy:
@@ -17,7 +17,7 @@ spec:
           - --wait=false
       fetch:
       - imgpkgBundle:
-          image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:549ee308039b2502212289f2858921e71def90fd043785d671e6a14bef29bd14
+          image: us-east4-docker.pkg.dev/adhol-playground/supplychain/tanzu-build-images@sha256:e9c4b777da4674173cada4b8dcac3d53038bcf5bd933c2ed0114599b34aafbc8
       template:
       - ytt:
           paths:
@@ -28,4 +28,4 @@ spec:
           - '-'
   valuesSchema:
     openAPIv3: null
-  version: 20240725.1408.39284
+  version: 20240725.1442.15065
