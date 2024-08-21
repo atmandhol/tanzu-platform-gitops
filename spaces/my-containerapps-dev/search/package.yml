@@ -1,0 +1,31 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/search
+  creationTimestamp: null
+  name: search.apps.local.20240821.1943.8891
+spec:
+  refName: search.apps.local
+  releasedAt: "2024-08-21T19:47:06Z"
+  template:
+    spec:
+      deploy:
+      - kapp:
+          rawOptions:
+          - --wait=false
+      fetch:
+      - imgpkgBundle:
+          image: us-central1-docker.pkg.dev/app-last-mile/ucp/ca-registry@sha256:d56300c51e31b2bf4287ee7e91dacbaf1fd6e342cf30d62e03a3c19955143c88
+      template:
+      - ytt:
+          paths:
+          - config/
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+  valuesSchema:
+    openAPIv3: null
+  version: 20240821.1943.8891

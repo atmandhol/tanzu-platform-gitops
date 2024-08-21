@@ -1,0 +1,31 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/api-gateway
+  creationTimestamp: null
+  name: api-gateway.apps.local.20240821.1943.8891
+spec:
+  refName: api-gateway.apps.local
+  releasedAt: "2024-08-21T19:44:43Z"
+  template:
+    spec:
+      deploy:
+      - kapp:
+          rawOptions:
+          - --wait=false
+      fetch:
+      - imgpkgBundle:
+          image: us-central1-docker.pkg.dev/app-last-mile/ucp/ca-registry@sha256:35084291235080f38bb8e25bcfd0dd2be32c3325e9efb1048675c03e785cee00
+      template:
+      - ytt:
+          paths:
+          - config/
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+  valuesSchema:
+    openAPIv3: null
+  version: 20240821.1943.8891

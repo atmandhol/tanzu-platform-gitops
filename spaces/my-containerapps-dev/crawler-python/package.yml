@@ -1,0 +1,31 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/crawler-python
+  creationTimestamp: null
+  name: crawler-python.apps.local.20240821.1943.8891
+spec:
+  refName: crawler-python.apps.local
+  releasedAt: "2024-08-21T19:45:35Z"
+  template:
+    spec:
+      deploy:
+      - kapp:
+          rawOptions:
+          - --wait=false
+      fetch:
+      - imgpkgBundle:
+          image: us-central1-docker.pkg.dev/app-last-mile/ucp/ca-registry@sha256:9e66c94e48ed4dd50e42e9ee9f09474c601ade1514e7add3701008ce70bf51c1
+      template:
+      - ytt:
+          paths:
+          - config/
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+  valuesSchema:
+    openAPIv3: null
+  version: 20240821.1943.8891

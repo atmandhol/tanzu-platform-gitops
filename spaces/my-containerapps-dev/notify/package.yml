@@ -1,0 +1,31 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/notify
+  creationTimestamp: null
+  name: notify.apps.local.20240821.1943.8891
+spec:
+  refName: notify.apps.local
+  releasedAt: "2024-08-21T19:46:18Z"
+  template:
+    spec:
+      deploy:
+      - kapp:
+          rawOptions:
+          - --wait=false
+      fetch:
+      - imgpkgBundle:
+          image: us-central1-docker.pkg.dev/app-last-mile/ucp/ca-registry@sha256:1273cceaf8795a0f306178b84d9d2a7816787fb5103235383d8c158c73a85c54
+      template:
+      - ytt:
+          paths:
+          - config/
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+  valuesSchema:
+    openAPIv3: null
+  version: 20240821.1943.8891
