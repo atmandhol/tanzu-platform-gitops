@@ -1,0 +1,31 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/availability
+  creationTimestamp: null
+  name: availability.apps.local.20240918.2052.13330
+spec:
+  refName: availability.apps.local
+  releasedAt: "2024-09-18T20:56:13Z"
+  template:
+    spec:
+      deploy:
+      - kapp:
+          rawOptions:
+          - --wait=false
+      fetch:
+      - imgpkgBundle:
+          image: supply-chain-docker-dev-local.usw1.packages.broadcom.com/ci/internal/tp-supplychain-local/build@sha256:6de72bc2fd91be9d5983c960320ae5d591a0587ce6a92a9a9843e0c4d6a3a76c
+      template:
+      - ytt:
+          paths:
+          - config/
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+  valuesSchema:
+    openAPIv3: null
+  version: 20240918.2052.13330

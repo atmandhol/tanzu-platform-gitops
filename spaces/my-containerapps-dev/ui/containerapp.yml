@@ -1,0 +1,70 @@
+apiVersion: apps.tanzu.vmware.com/v1
+kind: ContainerApp
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/ui
+    containerapp.apps.tanzu.vmware.com/class: kubernetes
+  name: ui
+spec:
+  content:
+    buildTimestamp: "2024-09-18T20:52:13Z"
+    packageImage: supply-chain-docker-dev-local.usw1.packages.broadcom.com/ci/internal/tp-supplychain-local/build@sha256:0c013964ce257c5e7fe16325565bb3e7e190f3c0f3594196123dc0c7eefee5b8
+    packageRefName: ui.apps.local
+    packageVersion: 20240918.2052.13330
+    summary: image:0a76bc6 @ 2024-09-18T20:52:13Z
+    version: 20240918.2052.13330
+  health:
+    maxUnavailableReplicas: 10%
+  image: supply-chain-docker-dev-local.usw1.packages.broadcom.com/ci/internal/tp-supplychain-local/build@sha256:0a76bc6cf8fb5334a7fde1fde52789bd12dc8ac573a6696723892f87a8bf190f
+  nonSecretEnv:
+  - name: PORT
+    value: "8080"
+  ports:
+  - name: main
+    port: 8080
+  relatedRefs:
+  - for: kubernetes.list-replicas
+    kind: Pod
+    labelSelector: containerapp.apps.tanzu.vmware.com/app-name=ui
+  - apiGroup: apps
+    for: kubernetes.service-binding-target
+    kind: Deployment
+    name: ui
+  - for: kubernetes.service-target
+    kind: Service
+    name: ui
+  - for: kubernetes.scale-replicas
+    keyPath: .data['values.yml']->[yaml].replicas
+    kind: Secret
+    name: ui-values
+  - for: kubernetes.scale-resources
+    keyPath: .data['values.yml']->[yaml].resources
+    kind: Secret
+    name: ui-values
+  - for: kubernetes.set-secret-env
+    keyPath: .data['values.yml']->[yaml].secretEnv
+    kind: Secret
+    name: ui-values
+  - apiGroup: packaging.carvel.dev
+    for: kubernetes.delete
+    kind: PackageInstall
+    name: ui
+  - apiGroup: data.packaging.carvel.dev
+    for: kubernetes.delete
+    kind: Package
+    name: ui.apps.local.20240918.2052.13330
+  - for: kubernetes.delete
+    kind: Secret
+    name: ui-values
+  - for: kubernetes.set-content-hash
+    keyPath: .data['values.yml']->[yaml].contentHash
+    kind: Secret
+    name: ui-values
+  - for: kubernetes.set-content-version
+    keyPath: .data['values.yml']->[yaml].contentVersion
+    kind: Secret
+    name: ui-values
+  resources:
+    cpu: 300m
+    memory: 1Gi
