@@ -2,4 +2,4 @@ apiVersion: config.tanzu.vmware.com/v1
 kind: TanzuConfig
 configuration:
   projectRoot:
-    uuid: 1571cf18-b456-46b7-b80d-fb8e419928b3  # UUID for tanzu-supply-chain project
+    uuid: 6d191233-2be0-4831-891b-b7695047b447

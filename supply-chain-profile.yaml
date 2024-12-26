@@ -9,7 +9,6 @@ spec:
   - name: tanzu-build.supplychain.tanzu.vmware.com
   - name: tanzu-deploy.supplychain.tanzu.vmware.com
   - name: tekton.tanzu.vmware.com
-  - name: supply-chain.apps.tanzu.vmware.com
-  - name: package-management.tanzu.vmware.com
+  - name: supply-chain.tanzu.vmware.com
+  - name: egress.tanzu.vmware.com
   traits:
-
