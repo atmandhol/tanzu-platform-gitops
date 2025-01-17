@@ -1,4 +1,3 @@
-#! some comment here
 apiVersion: apps.tanzu.vmware.com/v1
 kind: ContainerApp
 metadata:
