@@ -1,0 +1,31 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/single-image-single-app
+  creationTimestamp: null
+  name: single-image-single-app.apps.local.20250117.1839.50080
+spec:
+  refName: single-image-single-app.apps.local
+  releasedAt: "2025-01-17T18:40:43Z"
+  template:
+    spec:
+      deploy:
+      - kapp:
+          rawOptions:
+          - --wait=false
+      fetch:
+      - imgpkgBundle:
+          image: harbor-dev.buildservice.dev/ci/containerapp-single-image-single-app@sha256:2093ceb1caf77547faca14b29819a42843b5864848c656c36ea2b43cf260f849
+      template:
+      - ytt:
+          paths:
+          - config/
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+  valuesSchema:
+    openAPIv3: null
+  version: 20250117.1839.50080
