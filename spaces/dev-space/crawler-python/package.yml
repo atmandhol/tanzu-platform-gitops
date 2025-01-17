@@ -1,3 +1,4 @@
+# tinker package
 apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
