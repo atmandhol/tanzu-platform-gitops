@@ -1,0 +1,74 @@
+apiVersion: apps.tanzu.vmware.com/v1
+kind: ContainerApp
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/single-image-single-app
+    containerapp.apps.tanzu.vmware.com/class: kubernetes
+  name: single-image-single-app
+spec:
+  content:
+    buildTimestamp: "2025-01-17T21:06:02Z"
+    gitCommit: b16bebf34f9ee7c2166945462c0f78a39f4c6de6
+    gitRef: main
+    gitURL: github.com/atmandhol/tanzu-build-samples.git
+    packageImage: harbor-dev.buildservice.dev/ci/containerapp-single-image-single-app@sha256:a2c9a9d496b5fcc940d47a2b2eb6cf8d8bb2ee29edf8b275e124b47e3d781b56
+    packageRefName: single-image-single-app.apps.local
+    packageVersion: 20250117.2106.2759
+    summary: git:b16bebf @ 2025-01-17T21:06:02Z
+    version: 20250117.2106.2759
+  health:
+    maxUnavailableReplicas: 10%
+  image: harbor-dev.buildservice.dev/ci/containerapp-single-image-single-app:20250117.2106.2759@sha256:09edc8a1c47cde5eac9506946b444dd28388bf0db365ca231fbd1bb8706fb5ce
+  nonSecretEnv:
+  - name: PORT
+    value: "8080"
+  ports:
+  - name: main
+    port: 8080
+    protocol: HTTP
+  relatedRefs:
+  - for: kubernetes.list-replicas
+    kind: Pod
+    labelSelector: containerapp.apps.tanzu.vmware.com/app-name=single-image-single-app
+  - apiGroup: apps
+    for: kubernetes.service-binding-target
+    kind: Deployment
+    name: single-image-single-app
+  - for: kubernetes.service-target
+    kind: Service
+    name: single-image-single-app
+  - for: kubernetes.scale-replicas
+    keyPath: .data['values.yml']->[yaml].replicas
+    kind: Secret
+    name: single-image-single-app-values
+  - for: kubernetes.scale-resources
+    keyPath: .data['values.yml']->[yaml].resources
+    kind: Secret
+    name: single-image-single-app-values
+  - for: kubernetes.set-secret-env
+    keyPath: .data['values.yml']->[yaml].secretEnv
+    kind: Secret
+    name: single-image-single-app-values
+  - apiGroup: packaging.carvel.dev
+    for: kubernetes.delete
+    kind: PackageInstall
+    name: single-image-single-app
+  - apiGroup: data.packaging.carvel.dev
+    for: kubernetes.delete
+    kind: Package
+    name: single-image-single-app.apps.local.20250117.2106.2759
+  - for: kubernetes.delete
+    kind: Secret
+    name: single-image-single-app-values
+  - for: kubernetes.set-content-hash
+    keyPath: .data['values.yml']->[yaml].contentHash
+    kind: Secret
+    name: single-image-single-app-values
+  - for: kubernetes.set-content-version
+    keyPath: .data['values.yml']->[yaml].contentVersion
+    kind: Secret
+    name: single-image-single-app-values
+  resources:
+    cpu: 300m
+    memory: 1Gi
