@@ -5,10 +5,10 @@ metadata:
     apps.tanzu.vmware.com/promotable: ""
     apps.tanzu.vmware.com/promote-group: ContainerApp/single-image-single-app
   creationTimestamp: null
-  name: single-image-single-app.apps.local.20250117.2106.2759
+  name: single-image-single-app.apps.local.20250205.520.18656
 spec:
   refName: single-image-single-app.apps.local
-  releasedAt: "2025-01-17T21:09:49Z"
+  releasedAt: "2025-02-05T05:21:34Z"
   template:
     spec:
       deploy:
@@ -17,7 +17,7 @@ spec:
           - --wait=false
       fetch:
       - imgpkgBundle:
-          image: harbor-dev.buildservice.dev/ci/containerapp-single-image-single-app@sha256:a2c9a9d496b5fcc940d47a2b2eb6cf8d8bb2ee29edf8b275e124b47e3d781b56
+          image: harbor-dev.buildservice.dev/ci/containerapp-single-image-single-app@sha256:a2b8381a5db31dd2c66e9cb7c6bacaa0c420d5f79e3313ff4ae71d01339fb3c7
       template:
       - ytt:
           paths:
@@ -28,4 +28,4 @@ spec:
           - '-'
   valuesSchema:
     openAPIv3: null
-  version: 20250117.2106.2759
+  version: 20250205.520.18656
