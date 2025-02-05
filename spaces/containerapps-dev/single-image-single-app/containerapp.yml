@@ -8,18 +8,18 @@ metadata:
   name: single-image-single-app
 spec:
   content:
-    buildTimestamp: "2025-01-17T21:06:02Z"
+    buildTimestamp: "2025-02-05T05:20:18Z"
     gitCommit: b16bebf34f9ee7c2166945462c0f78a39f4c6de6
     gitRef: main
     gitURL: github.com/atmandhol/tanzu-build-samples.git
-    packageImage: harbor-dev.buildservice.dev/ci/containerapp-single-image-single-app@sha256:a2c9a9d496b5fcc940d47a2b2eb6cf8d8bb2ee29edf8b275e124b47e3d781b56
+    packageImage: harbor-dev.buildservice.dev/ci/containerapp-single-image-single-app@sha256:a2b8381a5db31dd2c66e9cb7c6bacaa0c420d5f79e3313ff4ae71d01339fb3c7
     packageRefName: single-image-single-app.apps.local
-    packageVersion: 20250117.2106.2759
-    summary: git:b16bebf @ 2025-01-17T21:06:02Z
-    version: 20250117.2106.2759
+    packageVersion: 20250205.520.18656
+    summary: git:b16bebf @ 2025-02-05T05:20:18Z
+    version: 20250205.520.18656
   health:
     maxUnavailableReplicas: 10%
-  image: harbor-dev.buildservice.dev/ci/containerapp-single-image-single-app:20250117.2106.2759@sha256:09edc8a1c47cde5eac9506946b444dd28388bf0db365ca231fbd1bb8706fb5ce
+  image: harbor-dev.buildservice.dev/ci/containerapp-single-image-single-app:20250205.520.18656@sha256:759529f4f5ceb4837e10f533c66d1fe9bb98bc5bea02313cc6da690256fb72b5
   nonSecretEnv:
   - name: PORT
     value: "8080"
@@ -57,7 +57,7 @@ spec:
   - apiGroup: data.packaging.carvel.dev
     for: kubernetes.delete
     kind: Package
-    name: single-image-single-app.apps.local.20250117.2106.2759
+    name: single-image-single-app.apps.local.20250205.520.18656
   - for: kubernetes.delete
     kind: Secret
     name: single-image-single-app-values
