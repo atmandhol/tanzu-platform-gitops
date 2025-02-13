@@ -1,0 +1,31 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/crawler-python
+  creationTimestamp: null
+  name: crawler-python.apps.local.20250213.2343.57893
+spec:
+  refName: crawler-python.apps.local
+  releasedAt: "2025-02-13T23:44:54Z"
+  template:
+    spec:
+      deploy:
+      - kapp:
+          rawOptions:
+          - --wait=false
+      fetch:
+      - imgpkgBundle:
+          image: harbor-dev.buildservice.dev/ci/containerapp-crawler-python@sha256:22b8f870c30a553c819c5a29454521870008cd619b363ff05c7111dd544887bc
+      template:
+      - ytt:
+          paths:
+          - config/
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+  valuesSchema:
+    openAPIv3: null
+  version: 20250213.2343.57893

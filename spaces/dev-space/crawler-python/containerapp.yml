@@ -1,0 +1,71 @@
+apiVersion: apps.tanzu.vmware.com/v1
+kind: ContainerApp
+metadata:
+  annotations:
+    apps.tanzu.vmware.com/promotable: ""
+    apps.tanzu.vmware.com/promote-group: ContainerApp/crawler-python
+    containerapp.apps.tanzu.vmware.com/class: kubernetes
+  name: crawler-python
+spec:
+  content:
+    buildTimestamp: "2025-02-13T23:43:57Z"
+    gitCommit: 7893ceca4af1d04e2aa695c17e91c65a4d714cc0
+    gitRef: sc-testing
+    gitURL: github.com/atmandhol/tanzu-build-samples.git
+    packageImage: harbor-dev.buildservice.dev/ci/containerapp-crawler-python@sha256:22b8f870c30a553c819c5a29454521870008cd619b363ff05c7111dd544887bc
+    packageRefName: crawler-python.apps.local
+    packageVersion: 20250213.2343.57893
+    summary: git:7893cec @ 2025-02-13T23:43:57Z
+    version: 20250213.2343.57893
+  health:
+    maxUnavailableReplicas: 10%
+  image: harbor-dev.buildservice.dev/ci/containerapp-crawler-python:20250213.2343.57893@sha256:f8915ace2331095018f311e8e1d76b62183a918fd368ed567bfe13b75c350a57
+  ports:
+  - name: main
+    port: 8080
+    protocol: HTTP
+  relatedRefs:
+  - for: kubernetes.list-replicas
+    kind: Pod
+    labelSelector: containerapp.apps.tanzu.vmware.com/app-name=crawler-python
+  - apiGroup: apps
+    for: kubernetes.service-binding-target
+    kind: Deployment
+    name: crawler-python
+  - for: kubernetes.service-target
+    kind: Service
+    name: crawler-python
+  - for: kubernetes.scale-replicas
+    keyPath: .data['values.yml']->[yaml].replicas
+    kind: Secret
+    name: crawler-python-values
+  - for: kubernetes.scale-resources
+    keyPath: .data['values.yml']->[yaml].resources
+    kind: Secret
+    name: crawler-python-values
+  - for: kubernetes.set-secret-env
+    keyPath: .data['values.yml']->[yaml].secretEnv
+    kind: Secret
+    name: crawler-python-values
+  - apiGroup: packaging.carvel.dev
+    for: kubernetes.delete
+    kind: PackageInstall
+    name: crawler-python
+  - apiGroup: data.packaging.carvel.dev
+    for: kubernetes.delete
+    kind: Package
+    name: crawler-python.apps.local.20250213.2343.57893
+  - for: kubernetes.delete
+    kind: Secret
+    name: crawler-python-values
+  - for: kubernetes.set-content-hash
+    keyPath: .data['values.yml']->[yaml].contentHash
+    kind: Secret
+    name: crawler-python-values
+  - for: kubernetes.set-content-version
+    keyPath: .data['values.yml']->[yaml].contentVersion
+    kind: Secret
+    name: crawler-python-values
+  resources:
+    cpu: 300m
+    memory: 1Gi
